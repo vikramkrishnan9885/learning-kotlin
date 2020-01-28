@@ -1,0 +1,29 @@
+buildscript{
+    ext.kotlin_version = '1.3.61'
+    ext.shadow_version = '5.0.0'
+    ext.funktionale_version = '1.2'
+    ext.kovenant_version = '3.3.0'
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version",
+                "com.github.jengelman.gradle.plugins:shadow:$shadow_version"
+    }
+}
+apply plugin:'kotlin'
+apply plugin: 'application'
+apply plugin:'com.github.johnrengelman.shadow'
+
+mainClassName = "hello.Main"
+
+repositories{
+    jcenter()
+}
+dependencies{
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    // Option
+    compile "org.funktionale:funktionale-all:$funktionale_version"
+    // Promise
+    compile "nl.komponents.kovenant:kovenant:$kovenant_version"
+}
