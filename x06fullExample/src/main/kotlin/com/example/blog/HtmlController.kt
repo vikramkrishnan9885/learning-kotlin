@@ -15,7 +15,8 @@ import org.springframework.web.server.ResponseStatusException
 // @Controller is typically used in combination with a @RequestMapping annotation used on
 // request handling methods.
 @Controller
-class HtmlController(private val repository: ArticleRepository) {
+class HtmlController(private val repository: ArticleRepository,
+                     private val properties: BlogProperties) {
 
     @GetMapping("/")
     fun blog(model: Model): String {
@@ -23,7 +24,9 @@ class HtmlController(private val repository: ArticleRepository) {
         // order to be able to write model["title"] = "Blog" instead of
         // model.addAttribute("title", "Blog").
         // https://docs.spring.io/spring-framework/docs/current/kdoc-api/spring-framework/
-        model["title"] = "Blog"
+        //model["title"] = "Blog"
+        model["title"] = properties.title
+        model["banner"] = properties.banner
         model["articles"] = repository.findAllByOrderByAddedAtDesc().map { it.render() } // see fun below
         return "blog"
     }
