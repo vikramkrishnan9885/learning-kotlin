@@ -8,6 +8,12 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.server.ResponseStatusException
 
+// Classic controllers can be annotated with the @Controller annotation.
+// This is simply a specialization of the @Component class and allows implementation classes
+// to be autodetected through the classpath scanning.
+//
+// @Controller is typically used in combination with a @RequestMapping annotation used on
+// request handling methods.
 @Controller
 class HtmlController(private val repository: ArticleRepository) {
 
@@ -42,6 +48,7 @@ class HtmlController(private val repository: ArticleRepository) {
             addedAt.format()
     )
 
+    // Note no id. Also data class with vals
     data class RenderedArticle(
             val slug: String,
             val title: String,
