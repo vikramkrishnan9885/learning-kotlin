@@ -1,6 +1,8 @@
 package com.journaler.api.controller
 
 import com.journaler.api.data.Note
+import com.journaler.api.service.NoteService
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.*
 import java.util.*
@@ -32,6 +34,11 @@ import java.util.*
 @RequestMapping("/notes")
 class NoteController {
 
+    // With @Autowired, we tell Spring Framework that a particular field must be dependency injected.
+    // The field must be defined as late init var.
+    @Autowired
+    private lateinit var service: NoteService
+
     // Equivalent to:
     // @RequestMapping(
     //               method = arrayOf(RequestMethod.GET),
@@ -52,12 +59,13 @@ class NoteController {
     @GetMapping(
             produces = arrayOf(MediaType.APPLICATION_JSON_VALUE)
     )
-    fun getNotes(): List<Note> {
-        return listOf(
-                Note("My first note", "Message for my first note"),
-                Note("VK's second note", "Msg for second note")
-        )
-    }
+    //fun getNotes(): List<Note> {
+    //    return listOf(
+    //            Note("My first note", "Message for my first note"),
+    //            Note("VK's second note", "Msg for second note")
+    //    )
+    //}
+    fun getNotes() = service.getNotes()
 
     @PutMapping(
             produces = arrayOf(MediaType.APPLICATION_JSON_VALUE),
