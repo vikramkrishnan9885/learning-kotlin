@@ -48,6 +48,7 @@ class ArticleController(private val repository: ArticleRepository) {
     // (e.g. @RequestMapping(method=GET))
     //
     @GetMapping("/")
+    // WHEN YOU ENTER THE URL IN YOUR BROWSER DON'T FORGET THE TRAILING SLASH
     //
     // The controller is annotated with the @RestController annotation, therefore the @ResponseBody isn't required.
     // Every request handling method of the controller class automatically serializes
