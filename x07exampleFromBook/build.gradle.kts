@@ -52,6 +52,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation("org.springframework:spring-web")
 	implementation("org.springframework:spring-webmvc")
+	implementation("io.micrometer:micrometer-registry-prometheus")
 }
 
 tasks.withType<Test> {
