@@ -26,7 +26,8 @@ fun main(args:Array<String>) {
     //println("NAMED QUERY ANNOTATED NOT NATIVE SQL: " )
     //println(queryAnnotated.list())
 
-    /**println("------------------------------------------------------------------------------------")
+    /**
+    println("------------------------------------------------------------------------------------")
     var queryAnnotatedSql: Query = session.getNamedQuery("Stock.findStockByStockNameNativeSQL").setString("stockName", "GENX")
     println("NAMED QUERY ANNOTATED NATIVE SQL: " )
     println(queryAnnotatedSql.list())

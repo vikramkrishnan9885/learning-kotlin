@@ -1,0 +1,12 @@
+management:
+  endpoints:
+    web:
+      base-path: "/management"
+      expose: ["health", "metrics", "trace"]
+  server:
+    port: 8089
+  endpoint:
+    health:
+      show-details: "ALWAYS"
+
+# https://stackoverflow.com/questions/32971182/spring-boot-health-not-showing-details-withdetail-info

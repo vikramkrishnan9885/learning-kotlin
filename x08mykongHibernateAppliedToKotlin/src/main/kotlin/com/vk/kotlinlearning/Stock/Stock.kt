@@ -1,10 +1,7 @@
 package com.vk.kotlinlearning.Stock
 
-import org.hibernate.annotations.NamedNativeQueries
-import org.hibernate.annotations.NamedNativeQuery
-import org.hibernate.annotations.NamedQueries
-import org.hibernate.annotations.NamedQuery
 import javax.persistence.Entity
+import javax.persistence.NamedNativeQuery
 import javax.persistence.Table
 
 //https://www.reddit.com/r/Kotlin/comments/78artp/annotation_problems_in_kotlin/
@@ -30,7 +27,7 @@ import javax.persistence.Table
 //)
 
 @Entity
-@Table(name = "STOCK",catalog = "journaler_api")
+@Table(name = "STOCK")
 @NamedNativeQuery(
         name = "Stock.findStockByStockNameNativeSQL",
         query = "select * from stock s where s.stock_name = :stockName",
