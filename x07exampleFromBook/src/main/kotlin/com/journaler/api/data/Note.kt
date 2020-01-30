@@ -1,6 +1,9 @@
 package com.journaler.api.data
 
+import com.fasterxml.jackson.annotation.JsonInclude
+import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.GenericGenerator
+import org.hibernate.annotations.UpdateTimestamp
 import java.util.*
 import javax.persistence.*
 
@@ -8,10 +11,13 @@ import javax.persistence.*
 // To assign a table name to be used, use @Table annotation, as in our Note class example.
 @Entity
 @Table(name = "note")
+@JsonInclude(JsonInclude.Include.NON_NULL) // we will ignore null fields during serialization
 data class Note(
         var title: String,
         var message: String,
 
+        // https://www.tutorialspoint.com/hibernate/hibernate_annotations.htm
+        // https://mkyong.com/hibernate/maven-3-hibernate-3-6-oracle-11g-example-annotation/?utm_source=mkyong.com&utm_medium=Referral&utm_campaign=afterpost-related&utm_content=link3
         // @Id annotation is used to telling Spring what field our ID will be.
         // As you can see, we are using UUID2 as ID for our data.
         @Id
@@ -21,7 +27,13 @@ data class Note(
         var id:String="",
         //var id: String= UUID.randomUUID().toString(),
 
-        var location: String=""
+        var location: String="",
+
+        // https://stackoverflow.com/questions/39838735/creationtimestamp-and-updatetimestamp
+        @CreationTimestamp
+        var created: Date = Date(),
+        @UpdateTimestamp
+        var modified: Date = Date()
 ){
     /**
      * Hibernate tries creates a bean via reflection.

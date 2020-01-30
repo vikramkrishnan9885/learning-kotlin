@@ -1,6 +1,7 @@
 package com.journaler.api.service
 
 import com.journaler.api.data.Note
+import com.journaler.api.data.NoteDTO
 import com.journaler.api.repository.NoteRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -37,12 +38,43 @@ class NoteService {
     @Autowired
     lateinit var repository: NoteRepository
 
+
+    // THIRD VERSION: USES DTO. CLEARLY SHOWS THAT SERVICES TIE DTOs TO DAOs
+    fun getNotes(): Iterable<NoteDTO> = repository.findAll().map { it -> NoteDTO(it) }
+
+    fun insertNote(note: NoteDTO) = NoteDTO(
+            repository.save(
+                    Note(
+                            title = note.title,
+                            message = note.message,
+                            location = note.location
+                    )
+            )
+    )
+
+    fun deleteNote(id: String) = repository.deleteById(id)
+
+    fun updateNote(noteDto: NoteDTO): NoteDTO {
+        var note = repository.findById(noteDto.id).get()
+        note.title = noteDto.title
+        note.message = noteDto.message
+        note.location = noteDto.location
+        note.modified = Date()
+        note = repository.save(note)
+        return NoteDTO(note)
+    }
+
+    fun findByTitle(title: String): Iterable<NoteDTO> {
+        return repository.findByTitle(title).map { it -> NoteDTO(it) }
+    }
+
+    /** SECOND VERSION: RETURNS DOMAIN OBJECT CREATED BY REPOSITORY
     fun getNotes(): Iterable<Note> = repository.findAll()
     fun insertNote(note: Note): Note = repository.save(note)
     fun deleteNote(id: String) = repository.deleteById(id)
     fun updateNote(note: Note): Note = repository.save(note)
-
-    /**
+    */
+    /** ORIGINAL VERSION
     fun getNotes(): List<Note> = listOf(
             Note(
                     UUID.randomUUID().toString(),

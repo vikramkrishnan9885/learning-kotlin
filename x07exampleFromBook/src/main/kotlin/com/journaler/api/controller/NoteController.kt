@@ -1,6 +1,7 @@
 package com.journaler.api.controller
 
 import com.journaler.api.data.Note
+import com.journaler.api.data.NoteDTO
 import com.journaler.api.service.NoteService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.MediaType
@@ -72,8 +73,10 @@ class NoteController {
             consumes = arrayOf(MediaType.APPLICATION_JSON_VALUE)
     )
     fun insertNode(
-            @RequestBody note: Note
-    ): Note {
+            @RequestBody note:NoteDTO
+            //@RequestBody note: Note
+    ):NoteDTO//: Note
+    {
         val savedNote = service.insertNote(note)
         return savedNote
     }
@@ -103,7 +106,8 @@ class NoteController {
     @PostMapping(
             produces = arrayOf(MediaType.APPLICATION_JSON_VALUE),
             consumes = arrayOf(MediaType.APPLICATION_JSON_VALUE)
-    ) fun updateNote(@RequestBody note: Note): Note {
+    ) //fun updateNote(@RequestBody note: Note): Note {
+    fun updateNote(@RequestBody note: NoteDTO): NoteDTO {
         val updatedNote = service.updateNote(note)
         return updatedNote
     }
