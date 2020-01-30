@@ -44,6 +44,6 @@ data class Note(
      * org.hibernate.InstantiationException: No default constructor for entity...
      */
     constructor() : this(
-            "", "", "", ""
+            "", "", "", "", Date(), Date()
     )
 }
