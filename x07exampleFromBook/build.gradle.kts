@@ -53,6 +53,9 @@ dependencies {
 	implementation("org.springframework:spring-web")
 	implementation("org.springframework:spring-webmvc")
 	implementation("io.micrometer:micrometer-registry-prometheus")
+
+	runtimeOnly("mysql:mysql-connector-java")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 }
 
 tasks.withType<Test> {

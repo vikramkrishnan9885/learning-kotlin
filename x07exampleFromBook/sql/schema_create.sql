@@ -1,0 +1,1 @@
+create schema `journaler_api` default character set utf8;

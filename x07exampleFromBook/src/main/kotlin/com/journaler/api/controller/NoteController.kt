@@ -71,30 +71,47 @@ class NoteController {
             produces = arrayOf(MediaType.APPLICATION_JSON_VALUE),
             consumes = arrayOf(MediaType.APPLICATION_JSON_VALUE)
     )
-    fun insertNote(
+    fun insertNode(
+            @RequestBody note: Note
+    ): Note {
+        val savedNote = service.insertNote(note)
+        return savedNote
+    }
+    /**fun insertNote(
             @RequestBody note: Note
     ): Note {
         note.id = UUID.randomUUID().toString()
         println(note)
         return note
     }
+    */
 
     @DeleteMapping(
             value = arrayOf("/{id}"),
             produces = arrayOf(MediaType.APPLICATION_JSON_VALUE)
     )
     fun deleteNote(@PathVariable(name = "id") id: String): Boolean {
+        service.deleteNote(id)
+        return true
+    }
+    /**fun deleteNote(@PathVariable(name = "id") id: String): Boolean {
         println("Removing: $id")
         return true
     }
+    */
 
     @PostMapping(
             produces = arrayOf(MediaType.APPLICATION_JSON_VALUE),
             consumes = arrayOf(MediaType.APPLICATION_JSON_VALUE)
-    )
+    ) fun updateNote(@RequestBody note: Note): Note {
+        val updatedNote = service.updateNote(note)
+        return updatedNote
+    }
+    /**
     fun updateNote(@RequestBody note: Note): Note {
         note.title += " [ updated ]"
         note.message += " [ updated ]"
         return note
     }
+    */
 }
