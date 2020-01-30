@@ -1,4 +1,4 @@
-package com.vk.kotlinlearning.Stock
+package com.vk.kotlinlearning.commons
 
 import org.hibernate.SessionFactory
 import org.hibernate.cfg.Configuration

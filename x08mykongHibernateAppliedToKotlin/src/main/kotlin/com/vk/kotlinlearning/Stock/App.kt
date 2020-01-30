@@ -1,6 +1,6 @@
 package com.vk.kotlinlearning.Stock
 
-import com.vk.kotlinlearning.Stock.HibernateUtil.sessionFactory
+import com.vk.kotlinlearning.commons.HibernateUtil.sessionFactory
 import org.hibernate.Session
 
 fun main(args: Array<String>) {
