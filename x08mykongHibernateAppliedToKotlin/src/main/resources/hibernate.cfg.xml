@@ -20,6 +20,7 @@
         <!-- Names the annotated entity class or xml -->
         <mapping resource="com/vk/kotlinlearning/Stock/Stock.hbm.xml"></mapping>
         <mapping class="com.vk.kotlinlearning.DBUser.DBUser"></mapping>
+        <mapping class="com.vk.kotlinlearning.Stock.Stock"/>
 
     </session-factory>
 </hibernate-configuration>

@@ -22,4 +22,14 @@
 
     </class>
 
+
+    <query name="findStockByStockCode">
+        <![CDATA[from Stock s where s.stockCode = :stockCode]]>
+    </query>
+
+    <sql-query name="findStockByStockCodeNativeSQL">
+        <return alias="stock" class="com.vk.kotlinlearning.Stock.Stock"/>
+        <![CDATA[select * from stock s where s.stock_code = :stockCode]]>
+    </sql-query>
+
 </hibernate-mapping>
