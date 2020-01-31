@@ -16,7 +16,7 @@ class StormtrooperDaoImpl: StormtrooperDao {
 
     private val trooperMap: MutableMap<String, Stormtrooper> = Collections.synchronizedSortedMap(TreeMap())
 
-    fun DefaultStormtrooperDao() {
+    constructor() {
         for (i in 0..49) {
             addStormtrooper(randomTrooper())
         }
