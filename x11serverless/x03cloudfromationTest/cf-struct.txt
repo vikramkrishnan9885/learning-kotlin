@@ -1,0 +1,43 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Building Lambda with AWS CloudFormation
+
+ABOVE IS STANDARD BOILER PLATE
+
+
+Resources:
+IamRoleLambdaExecution:
+Type: AWS::IAM::Role
+Properties:
+      # Properties for the role are shown later.
+
+
+LambdaFunctionWithCF:
+Type: AWS::Lambda::Function
+Properties:
+      # Properties for the Lambda are shown later.
+DependsOn:
+    - IamRoleLambdaExecution
+
+CF RESOURCE FORMAT -- NTPD
+Name:
+Type:
+Properties:
+DependsOn:
+
+
+
+######################################
+Return Values
+Ref
+When you pass the logical ID of this resource to the intrinsic Ref function, Ref returns the resource name.
+
+For more information about using the Ref function, see Ref.
+
+Fn::GetAtt
+The Fn::GetAtt intrinsic function returns a value for a specified attribute of this type. The following are the available attributes and sample return values.
+
+For more information about using the Fn::GetAtt intrinsic function, see Fn::GetAtt.
+
+Arn
+The Amazon Resource Name (ARN) of the function.
