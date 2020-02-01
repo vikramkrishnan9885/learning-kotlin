@@ -41,3 +41,16 @@ For more information about using the Fn::GetAtt intrinsic function, see Fn::GetA
 
 Arn
 The Amazon Resource Name (ARN) of the function.
+
+
+#########################################
+
+--  AWSTemplateFormatVersion is the version of CloudFormation template the template conforms to
+--  Description is a text that describes the template
+--  Resource components are the AWS resources used in the template
+--  Parameter components are the input (dynamic) to your template
+--  Mapping components are variables (static) for your template
+--  Output components describe the values that are returned
+--  Condition components control resource provisioning
+--  Metadata provides additional information about the template
+--  Transform specifies the version of the AWS ServerlessApplication Model (AWS SAM) for Serverless applications

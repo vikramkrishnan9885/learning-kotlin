@@ -44,6 +44,8 @@ Resources:
       # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html
       # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html
       Role:
+        # To get the role Arn, we used the GetAtt function passing the logical name of the Role and the property name Arn:
+        # Fn::GetAtt is an intrinsic function that returns the value of an attribute from a resource in the template. 
         Fn::GetAtt:
         - IamRoleLambdaExecution
         - Arn
