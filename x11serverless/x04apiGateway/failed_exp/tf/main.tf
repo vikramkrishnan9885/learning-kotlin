@@ -5,7 +5,7 @@ provider "aws" {
 }
 
 resource "aws_api_gateway_rest_api" "MyDemoAPI" {
-  name = "hello-world"
+  name = "Greeting-API"
   description = "This is my API for demonstration purposes"
 
   endpoint_configuration {
@@ -48,9 +48,9 @@ resource "aws_api_gateway_integration" "MyDemoIntegration" {
   cache_namespace      = "foobar"
   timeout_milliseconds = 29000
 
-  request_parameters = {
-    "integration.request.header.X-Authorization" = "'static'"
-  }
+  #request_parameters = {
+  #  "integration.request.header.X-Authorization" = "'static'"
+  #}
 
   # Transforms the incoming XML request to JSON
   request_templates = {
@@ -74,7 +74,7 @@ resource "aws_api_gateway_integration_response" "MyDemoIntegrationResponse" {
   # Transforms the backend JSON response to XML
   response_templates = {
     "application/json" = <<EOF
-"{\"message\": \"Hello $input.params('"'"'name'"'"')\"}"
+"{\"message\": \"Hello $input.params('name')\" }"
 EOF
   }
 }
@@ -85,9 +85,9 @@ resource "aws_api_gateway_deployment" "MyDemoDeployment" {
   rest_api_id = "${aws_api_gateway_rest_api.MyDemoAPI.id}"
   stage_name  = "test"
 
-  variables = {
-    "answer" = "42"
-  }
+  //variables = {
+  //  "name" = "Vikram"
+  //}
 }
 
 output "url" {

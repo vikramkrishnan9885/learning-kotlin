@@ -46,6 +46,7 @@ Resources:
       Role:
         # To get the role Arn, we used the GetAtt function passing the logical name of the Role and the property name Arn:
         # Fn::GetAtt is an intrinsic function that returns the value of an attribute from a resource in the template. 
+        # https://stackoverflow.com/questions/58617503/cloudformation-when-to-use-getatt-ref-vs
         Fn::GetAtt:
         - IamRoleLambdaExecution
         - Arn
