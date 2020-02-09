@@ -35,6 +35,10 @@ class HystrixServerApplication {
 				HystrixProperty(
 						name = "execution.isolation.thread.timeoutInMilliseconds"
 						, value = "6000"
+				),
+				HystrixProperty(
+						name = "circuitBreaker.errorThresholdPercentage"
+						, value="60"
 				)
 			)
 	)
