@@ -64,7 +64,7 @@
   </dependencies>
 
   <build>
-    <finalName>messaging-${uberJarVersion}</finalName>
+    <finalName>job-producer-${uberJarVersion}</finalName>
     <sourceDirectory>src/main/kotlin</sourceDirectory>
     <testSourceDirectory>src/test/kotlin</testSourceDirectory>
     <plugins>
@@ -116,7 +116,7 @@
               <transformers>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                   <manifestEntries>
-                    <Main-Class>com.vk.activemqjobs.Main</Main-Class>
+                    <Main-Class>com.vk.activemqjobs.JobQueueProducer</Main-Class>
                     <Build-Number>1.0</Build-Number>
                   </manifestEntries>
                 </transformer>

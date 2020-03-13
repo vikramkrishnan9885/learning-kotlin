@@ -5,7 +5,7 @@ import javax.jms.Connection
 import javax.jms.Destination
 import javax.jms.Session
 
-class Main() {
+class JobQueueProducer() {
 
     // FUC DS
     // Factory
