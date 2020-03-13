@@ -10,6 +10,8 @@ class Main () {
     var session:Session? = null
     var destination: Destination? = null
 
+
+    // BAR - before, after, run
     @Throws(Exception::class)
     fun before(queueName: String): Unit {
         val connectionFactory = ActiveMQConnectionFactory(connectionUri)
