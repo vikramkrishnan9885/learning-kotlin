@@ -1,10 +1,8 @@
 package com.vk.activemqjobs
 
 import org.apache.activemq.ActiveMQConnectionFactory
-import javax.jms.Connection
-import javax.jms.Destination
-import javax.jms.MessageProducer
-import javax.jms.Session
+import javax.jms.*
+
 
 class JobQueueProducer() {
 
@@ -38,6 +36,7 @@ class JobQueueProducer() {
     // BEFORE - START FCSD
     @Throws(Exception::class)
     fun before(): Unit {
+        // OTHER THAN THIS LINE EVERYTHING ELSE USES THE JMS API
         connectionFactory = ActiveMQConnectionFactory(connectionUri)
         // !! is not Null Safe
         // https://kotlinlang.org/docs/reference/null-safety.html
@@ -86,6 +85,30 @@ class JobQueueProducer() {
     fun run(): Unit {
 
         val producer: MessageProducer? = session?.createProducer(destination)
+        // NOTE THE FOR LOOP
+        for (i in 0..999) {
+            val message: TextMessage? = session?.createTextMessage("Job number: $i")
+            message?.setIntProperty("JobID", i)
+            producer?.send(message)
+        }
 
+    }
+
+    companion object {
+        @JvmStatic
+        fun main(args: Array<String>) {
+            val producer = JobQueueProducer()
+            print("\n\n\n")
+            println("Starting example Job Queue Producer now...")
+            try {
+                producer.before()
+                producer.run()
+                producer.after()
+            } catch (e: java.lang.Exception) {
+                println("Caught an exception during the example: " + e.message)
+            }
+            println("Finished running the sample Job Queue Producer app.")
+            print("\n\n\n")
+        }
     }
 }
