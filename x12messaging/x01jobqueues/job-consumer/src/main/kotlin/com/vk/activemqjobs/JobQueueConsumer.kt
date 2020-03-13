@@ -55,6 +55,7 @@ class JobQueueConsumer {
 
         // THIS LINE IS DIFFERENT AND MISSING THIS MEANS NOTHING WILL HAPPEN AS NO
         // CONNECTIONS ARE STARTED
+        // https://activemq.apache.org/i-am-not-receiving-any-messages-what-is-wrong
         connection?.start()
 
         session = connection?.createSession(false, Session.AUTO_ACKNOWLEDGE)
