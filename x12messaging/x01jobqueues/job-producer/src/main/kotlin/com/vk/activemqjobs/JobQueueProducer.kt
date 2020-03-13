@@ -65,6 +65,9 @@ class JobQueueProducer() {
          * the second indicates that message acknowledgment is not specified for transacted sessions.
          * If the session is transacted, the second argument is ignored, so it is a good idea to specify 0 to make
          * the meaning of your code clear.
+         *
+         * https://docs.oracle.com/javaee/5/api/javax/jms/Session.html
+         *
          */
         session = connection?.createSession(false, Session.AUTO_ACKNOWLEDGE)
         destination = session?.createQueue("JOBQ.Work")
