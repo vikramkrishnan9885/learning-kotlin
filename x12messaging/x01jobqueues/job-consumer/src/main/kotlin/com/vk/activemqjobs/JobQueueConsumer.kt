@@ -3,15 +3,16 @@ package com.vk.activemqjobs
 import org.apache.activemq.ActiveMQConnectionFactory
 import javax.jms.Connection
 import javax.jms.Destination
+import javax.jms.MessageConsumer
 import javax.jms.Session
 
 class JobQueueConsumer {
 
-    var connectionFactory: ActiveMQConnectionFactory? = null
-    val connectionUri:String = "tcp://localhost:61616"
-    var connection: Connection? = null
-    var destination: Destination? = null
-    var session: Session? = null
+    private var connectionFactory: ActiveMQConnectionFactory? = null
+    private val connectionUri:String = "tcp://localhost:61616"
+    private var connection: Connection? = null
+    private var destination: Destination? = null
+    private var session: Session? = null
 
     @Throws(Exception::class)
     fun before(): Unit {
@@ -30,6 +31,6 @@ class JobQueueConsumer {
 
     @Throws(Exception::class)
     fun run(): Unit {
-
+        val consumer: MessageConsumer? = session?.createConsumer(destination)
     }
 }

@@ -3,9 +3,22 @@ package com.vk.activemqjobs
 import org.apache.activemq.ActiveMQConnectionFactory
 import javax.jms.Connection
 import javax.jms.Destination
+import javax.jms.MessageProducer
 import javax.jms.Session
 
 class JobQueueProducer() {
+
+    // The properties of the JMS queue make it an ideal means of processing jobs;
+    // let's review those properties again in the context of a job processing application:
+    //
+    // Messages placed on a queue are persisted until they are consumed by MessageConsumer,
+    // jobs aren't lost if no active consumer is online.
+    //
+    // Queued messages can have a time to live (TTL) set, which causes them to time out and be removed from the queue.
+    // This is good if a queued job is time sensitive.
+    //
+    // Queued messages are delivered in the order they were placed on the queue if a single consumer is active,
+    // this is good if the jobs are order dependent.
 
     // FUC DS
     // Factory
@@ -14,11 +27,11 @@ class JobQueueProducer() {
     // Destination
     // Session
 
-    var connectionFactory: ActiveMQConnectionFactory? = null
-    val connectionUri:String = "tcp://localhost:61616"
-    var connection: Connection? = null
-    var destination: Destination? = null
-    var session: Session? = null
+    private var connectionFactory: ActiveMQConnectionFactory? = null
+    private val connectionUri:String = "tcp://localhost:61616"
+    private var connection: Connection? = null
+    private var destination: Destination? = null
+    private var session: Session? = null
 
 
     // BAR
@@ -71,6 +84,8 @@ class JobQueueProducer() {
     // RUN
     @Throws(Exception::class)
     fun run(): Unit {
+
+        val producer: MessageProducer? = session?.createProducer(destination)
 
     }
 }
