@@ -1,4 +1,5 @@
 #!/bin/bash
+
 mvn archetype:generate \
     -DgroupId=com.vk.activemqtopics \
     -DartifactId=event-publisher \
