@@ -1,6 +1,6 @@
 gradle init \
 --type kotlin-application \
 --dsl=groovy \
---package=x01consumer \
+--package=x02avroserdes \
 --test-framework=kotlintest \
---project-name=x01consumer
+--project-name=x02avroserdes

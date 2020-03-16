@@ -1417,3 +1417,5 @@ org.apache.kafka.common.KafkaException: Failed to acquire lock on file .lock in 
 [2020-03-16 09:43:43,846] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 0 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
 [2020-03-16 09:45:25,761] INFO [GroupCoordinator 0]: Preparing to rebalance group console-consumer-39001 with old generation 1 (__consumer_offsets-24) (kafka.coordinator.group.GroupCoordinator)
 [2020-03-16 09:45:25,762] INFO [GroupCoordinator 0]: Group console-consumer-39001 with generation 2 is now empty (__consumer_offsets-24) (kafka.coordinator.group.GroupCoordinator)
+[2020-03-16 09:53:43,851] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 0 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+[2020-03-16 10:03:43,850] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 1 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
