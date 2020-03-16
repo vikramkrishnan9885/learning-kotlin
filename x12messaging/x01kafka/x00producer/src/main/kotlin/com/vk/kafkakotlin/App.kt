@@ -3,13 +3,9 @@
  */
 package com.vk.kafkakotlin
 
-class App {
-    val greeting: String
-        get() {
-            return "Hello world."
-        }
-}
+import com.vk.kafkakotlin.producers.SimpleProducer
+
 
 fun main(args: Array<String>) {
-    println(App().greeting)
+    SimpleProducer("localhost:9092").produce()
 }
