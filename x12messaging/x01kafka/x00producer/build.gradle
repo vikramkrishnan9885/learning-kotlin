@@ -16,6 +16,11 @@ repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+    mavenCentral()
+
+    // https://stackoverflow.com/questions/43488853/confluent-maven-repository-not-working
+    // https://github.com/lensesio/kafka-connect-common/blob/master/build.gradle
+    maven { url "http://packages.confluent.io/maven/" }
 }
 
 sourceCompatibility = 1.8
@@ -48,7 +53,7 @@ dependencies {
 
     // Kafka
     compile 'org.apache.kafka:kafka-clients:2.0.0'
-    compile 'io.confluent:kafka-avro-serializer:5.0.0'
+    compile 'io.confluent:kafka-avro-serializer:3.3.1'
 }
 
 application {
