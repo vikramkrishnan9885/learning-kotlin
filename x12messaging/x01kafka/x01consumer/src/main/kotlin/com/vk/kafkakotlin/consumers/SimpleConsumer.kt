@@ -1,6 +1,7 @@
 package com.vk.kafkakotlin.consumers
 
 import com.vk.kafkakotlin.models.Person
+import com.vk.kafkakotlin.serdes.PersonDeserializer
 import com.vk.kafkakotlin.utils.jsonMapper
 import com.vk.kafkakotlin.utils.personsTopic
 import org.apache.kafka.clients.consumer.Consumer
@@ -18,7 +19,8 @@ class SimpleConsumer(brokers: String) {
     private val logger = Logger.getLogger("SimpleConsumer")
     private val consumer = createConsumer(brokers)
 
-    private fun createConsumer(brokers: String): Consumer<String, String> {
+    //private fun createConsumer(brokers: String): Consumer<String, String> {
+    private fun createConsumer(brokers: String): Consumer<String, Person> {
         val props = Properties()
         props["bootstrap.servers"] = brokers
         // THIS DIFFERS FROM PRODUCER
@@ -29,8 +31,10 @@ class SimpleConsumer(brokers: String) {
         // we could create up to 4 consumers so as to consume data in parallel.
         props["group.id"] = "person-processor"
         props["key.deserializer"] = StringDeserializer::class.java
-        props["value.deserializer"] = StringDeserializer::class.java
-        return KafkaConsumer<String, String>(props)
+        // props["value.deserializer"] = StringDeserializer::class.java
+        props["value.deserializer"] = PersonDeserializer::class.java
+        //return KafkaConsumer<String, String>(props)
+        return KafkaConsumer<String, Person>(props)
     }
 
 
@@ -65,10 +69,13 @@ class SimpleConsumer(brokers: String) {
             logger.info("Received ${records.count()} records")
 
             records.iterator().forEach {
-                val personJson = it.value()
-                logger.info("JSON data: $personJson")
+                //val personJson = it.value()
+                //logger.info("JSON data: $personJson")
 
-                val person = jsonMapper.readValue(personJson, Person::class.java)
+                //val person = jsonMapper.readValue(personJson, Person::class.java)
+                //logger.info("Person: $person")
+
+                val person = it.value()
                 logger.info("Person: $person")
 
                 val birthDateLocal = person.birthDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
