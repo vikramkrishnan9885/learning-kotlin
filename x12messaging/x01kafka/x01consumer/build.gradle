@@ -16,14 +16,9 @@ repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
-    mavenCentral()
 
-    // https://stackoverflow.com/questions/43488853/confluent-maven-repository-not-working
-    // https://github.com/lensesio/kafka-connect-common/blob/master/build.gradle
     maven { url "http://packages.confluent.io/maven/" }
 }
-
-sourceCompatibility = 1.8
 
 dependencies {
     // Align versions of all Kotlin components
@@ -38,10 +33,6 @@ dependencies {
     // Use the Kotlin JUnit integration.
     testImplementation 'org.jetbrains.kotlin:kotlin-test-junit'
 
-    // WE ADDED THIS
-
-    // fake data generator
-    compile "com.github.javafaker:javafaker:0.15"
 
     // logging
     compile 'org.slf4j:slf4j-api:1.7.25'
@@ -50,6 +41,14 @@ dependencies {
     // JSON serialization
     compile 'com.fasterxml.jackson.core:jackson-databind:2.9.6'
     compile 'com.fasterxml.jackson.module:jackson-module-kotlin:2.9.6'
+    // If you forget to register the Kotlin module for Jackson, you may see the following error:
+    //
+    // Exception in thread "main" com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot construct instance of `com.ippontech.kafkatutorials.simpleclient.Person` (no Creators, like default construct, exist): cannot deserialize from Object value (no delegate- or property-based Creator)
+    //
+    //The important part is no Creators, like default construct, exist.
+    // Kotlin data classes have specific constructors to assign the fields when creating an object,
+    // so there is no default constructor like in a Java POJO.
+    // Make sure to call registerKotlinModule() on your ObjectMapper to allow Jackson to work with data classes.
 
     // Kafka
     compile 'org.apache.kafka:kafka-clients:2.0.0'

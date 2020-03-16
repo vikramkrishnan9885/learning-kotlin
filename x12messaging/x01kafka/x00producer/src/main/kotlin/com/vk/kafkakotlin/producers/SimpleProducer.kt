@@ -2,8 +2,8 @@ package com.vk.kafkakotlin.producers
 
 import com.github.javafaker.Faker
 import com.vk.kafkakotlin.models.Person
-import com.vk.kafkakotlin.models.personsTopic
 import com.vk.kafkakotlin.utils.jsonMapper
+import com.vk.kafkakotlin.utils.personsTopic
 import org.apache.kafka.clients.producer.KafkaProducer
 import org.apache.kafka.clients.producer.Producer
 import org.apache.kafka.clients.producer.ProducerRecord
