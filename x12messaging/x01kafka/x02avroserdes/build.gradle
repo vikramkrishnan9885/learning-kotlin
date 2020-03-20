@@ -16,6 +16,8 @@ repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+    mavenCentral()
+    maven { url 'https://packages.confluent.io/maven/' }
 }
 
 dependencies {
@@ -30,6 +32,21 @@ dependencies {
 
     // Use the Kotlin JUnit integration.
     testImplementation 'org.jetbrains.kotlin:kotlin-test-junit'
+
+    // fake data generator
+    compile "com.github.javafaker:javafaker:0.15"
+
+    // logging
+    compile 'org.slf4j:slf4j-api:1.7.25'
+    compile 'org.slf4j:slf4j-log4j12:1.7.25'
+
+    // JSON serialization
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.9.6'
+    compile 'com.fasterxml.jackson.module:jackson-module-kotlin:2.9.6'
+
+    // Kafka
+    compile 'org.apache.kafka:kafka-clients:2.0.0'
+    compile 'io.confluent:kafka-avro-serializer:5.0.0'
 }
 
 application {

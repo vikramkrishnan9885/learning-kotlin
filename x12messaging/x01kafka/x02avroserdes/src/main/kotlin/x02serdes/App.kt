@@ -3,13 +3,6 @@
  */
 package x02serdes
 
-class App {
-    val greeting: String
-        get() {
-            return "Hello world."
-        }
-}
-
 fun main(args: Array<String>) {
-    println(App().greeting)
+    SimpleProcessor("localhost:9092","http://localhost:8081").run()
 }
