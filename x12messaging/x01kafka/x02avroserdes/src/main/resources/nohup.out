@@ -1464,3 +1464,5 @@ org.apache.kafka.common.KafkaException: Failed to acquire lock on file .lock in 
 [2020-03-20 20:57:54,493] INFO [GroupCoordinator 0]: Group person-processor with generation 2 is now empty (__consumer_offsets-30) (kafka.coordinator.group.GroupCoordinator)
 [2020-03-20 21:04:02,499] INFO Processed session termination for sessionid: 0x1000769f9940005 (org.apache.zookeeper.server.PrepRequestProcessor)
 [2020-03-20 21:04:02,511] INFO Closed socket connection for client /127.0.0.1:62511 which had sessionid 0x1000769f9940005 (org.apache.zookeeper.server.NIOServerCnxn)
+[2020-03-20 21:07:15,061] INFO [GroupMetadataManager brokerId=0] Group person-processor transitioned to Dead in generation 2 (kafka.coordinator.group.GroupMetadataManager)
+[2020-03-20 21:07:15,064] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 3 milliseconds. (kafka.coordinator.group.GroupMetadataManager)

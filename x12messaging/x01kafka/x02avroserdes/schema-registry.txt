@@ -1,0 +1,18 @@
+The Schema Registry is running on port 8081. It offers a REST API with which you can interact with Curl, for instance. Registering a schema is not very easy, though, because you have to embed the JSON schema into another JSON object, meaning you have to do some escaping... Instead, I have a small Python scripts to register a schema:
+
+$ python src/main/resources/register_schema.py http://localhost:8081 persons-avro src/main/resources/person.avsc
+Schema Registry URL: http://localhost:8081
+Topic: persons-avro
+Schema file: src/main/resources/person.avsc
+
+You have to provide the URL of the Schema Registry (starting with http://, not just a hostname and port), the topic for which the schema should be registered, and the path to the schema.
+
+The equivalent Curl command would have been:
+
+$ curl -X POST -H "Content-Type: application/vnd.schemaregistry.v1+json" \
+  --data '{ "schema": "{ \"type\": \"record\", \"name\": \"Person\", \"namespace\": \"com.ippontech.kafkatutorials\", \"fields\": [ { \"name\": \"firstName\", \"type\": \"string\" }, { \"name\": \"lastName\", \"type\": \"string\" }, { \"name\": \"birthDate\", \"type\": \"long\" } ]}" }' \
+  http://localhost:8081/subjects/persons-avro-value/versions
+
+{"id":2}
+
+Notice that we are registering the schema under a "subject" named persons-avro-value. The Schema Registry actually doesn't know anything about our Kafka topics (we have not even created the persons-avro topic yet), and it is a convention (used by the serializers) to register schemas under a name that follows the <topic>-(key|value) format. In this case, since the schema is for the value of the messages, the suffix is -value, but this means we could also use Avro for the keys of our messages.
