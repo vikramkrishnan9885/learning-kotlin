@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="hellocucumber.RunCucumberTest" time="0.073" errors="0" skipped="0">
+<testsuite tests="2" failures="0" name="hellocucumber.RunCucumberTest" time="0.078" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/jre/lib"/>
@@ -64,5 +64,6 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="Is it Friday yet?" name="Sunday isn&apos;t Friday" time="0.073"/>
+  <testcase classname="Is it Friday yet?" name="Sunday isn&apos;t Friday" time="0.077"/>
+  <testcase classname="Is it Friday yet?" name="Friday is Friday" time="0.001"/>
 </testsuite>

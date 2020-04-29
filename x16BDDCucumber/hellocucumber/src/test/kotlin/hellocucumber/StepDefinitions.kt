@@ -6,7 +6,8 @@ import io.cucumber.java.en.Then
 import io.cucumber.java.en.When
 import junit.framework.Assert.assertEquals
 
-fun isItFriday(today: String) = "Nope"
+// fun isItFriday(today: String) = "Nope"
+fun isItFriday(today: String)= if (today == "Friday") "TGIF" else "Nope"
 
 class StepDefinitions {
 
@@ -38,6 +39,11 @@ class StepDefinitions {
 
         // Write code here that turns the phrase above into concrete actions
         // throw PendingException()
+    }
+
+    @Given("today is Friday")
+    fun today_is_Friday() {
+        today = "Friday"
     }
 
 
