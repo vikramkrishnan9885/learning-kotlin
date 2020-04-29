@@ -1,0 +1,95 @@
+ITSG003877-MAC:hellocucumber vikram.krishnan$ mvn test
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------------< hellocucumber:hellocucumber >---------------------
+[INFO] Building hellocucumber 1.0.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ hellocucumber ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 0 resource
+[INFO]
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ hellocucumber ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- kotlin-maven-plugin:1.3.61:compile (compile) @ hellocucumber ---
+[WARNING] No sources found skipping Kotlin compile
+[INFO]
+[INFO] --- maven-compiler-plugin:3.7.0:compile (compile) @ hellocucumber ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ hellocucumber ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ hellocucumber ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- kotlin-maven-plugin:1.3.61:test-compile (test-compile) @ hellocucumber ---
+[WARNING] Using experimental Kotlin incremental compilation
+[INFO] Kotlin compile iteration: /Users/vikram.krishnan/repos/my-repos/learning-kotlin/x16BDDCucumber/hellocucumber/src/test/kotlin/hellocucumber/RunCucumberTest.kt
+[INFO] Exit code: OK
+[INFO] Compiled 1 Kotlin files using incremental compiler
+[INFO]
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (testCompile) @ hellocucumber ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ hellocucumber ---
+[INFO] Surefire report directory: /Users/vikram.krishnan/repos/my-repos/learning-kotlin/x16BDDCucumber/hellocucumber/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running hellocucumber.RunCucumberTest
+Apr 29, 2020 8:16:22 PM io.cucumber.junit.Cucumber <init>
+WARNING: By default Cucumber is running in --non-strict mode.
+This default will change to --strict and --non-strict will be removed.
+You can use --strict or @CucumberOptions(strict = true) to suppress this warning
+
+Scenario: Sunday isn't Friday        # hellocucumber/is_it_friday_yet.feature:15
+  Given today is Sunday              # null
+  When I ask whether it's Friday yet # null
+  Then I should be told "Nope"       # null
+
+Undefined scenarios:
+classpath:hellocucumber/is_it_friday_yet.feature:15# Sunday isn't Friday
+
+1 Scenarios (1 undefined)
+3 Steps (3 undefined)
+0m0.080s
+
+
+You can implement missing steps with the snippets below:
+
+@Given("today is Sunday")
+public void today_is_Sunday() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+@When("I ask whether it's Friday yet")
+public void i_ask_whether_it_s_Friday_yet() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+@Then("I should be told {string}")
+public void i_should_be_told(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.358 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 1
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.153 s
+[INFO] Finished at: 2020-04-29T20:16:22+08:00
+[INFO] ------------------------------------------------------------------------
+ITSG003877-MAC:hellocucumber vikram.krishnan$
