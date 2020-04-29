@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="0" failures="0" name="hellocucumber.RunCucumberTest" time="0" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="hellocucumber.RunCucumberTest" time="0.081" errors="0" skipped="1">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/jre/lib"/>
@@ -64,4 +64,18 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
+  <testcase classname="Is it Friday yet?" name="Sunday isn&apos;t Friday" time="0.081">
+    <skipped/>
+    <system-out>
+Scenario: Sunday isn&apos;t Friday        &amp;#27;[90m# hellocucumber/is_it_friday_yet.feature:15&amp;#27;[0m
+  &amp;#27;[33mGiven &amp;#27;[0m&amp;#27;[33mtoday is Sunday&amp;#27;[0m              &amp;#27;[90m# null&amp;#27;[0m
+  &amp;#27;[33mWhen &amp;#27;[0m&amp;#27;[33mI ask whether it&apos;s Friday yet&amp;#27;[0m &amp;#27;[90m# null&amp;#27;[0m
+  &amp;#27;[33mThen &amp;#27;[0m&amp;#27;[33mI should be told &quot;Nope&quot;&amp;#27;[0m       &amp;#27;[90m# null&amp;#27;[0m
+</system-out>
+    <system-err>Apr 29, 2020 8:16:22 PM io.cucumber.junit.Cucumber &lt;init&gt;
+WARNING: By default Cucumber is running in --non-strict mode.
+This default will change to --strict and --non-strict will be removed.
+You can use --strict or @CucumberOptions(strict = true) to suppress this warning
+</system-err>
+  </testcase>
 </testsuite>
