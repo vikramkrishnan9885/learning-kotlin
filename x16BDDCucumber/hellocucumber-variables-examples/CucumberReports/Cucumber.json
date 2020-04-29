@@ -1,0 +1,190 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2020-04-29T13:58:20.784Z",
+        "line": 12,
+        "name": "Today is or is not Friday",
+        "description": "",
+        "id": "is-it-friday-yet?;today-is-or-is-not-friday;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 1870000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "today is \"Friday\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Friday\"",
+                  "offset": 9
+                }
+              ],
+              "location": "void hellocucumber.StepDefinitions.today_is(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 568000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I ask whether it\u0027s Friday yet",
+            "match": {
+              "location": "void hellocucumber.StepDefinitions.i_ask_whether_it_s_Friday_yet()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1045000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I should be told \"TGIF\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"TGIF\"",
+                  "offset": 17
+                }
+              ],
+              "location": "void hellocucumber.StepDefinitions.i_should_be_told(java.lang.String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-04-29T13:58:20.854Z",
+        "line": 13,
+        "name": "Today is or is not Friday",
+        "description": "",
+        "id": "is-it-friday-yet?;today-is-or-is-not-friday;;3",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 827000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "today is \"Sunday\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Sunday\"",
+                  "offset": 9
+                }
+              ],
+              "location": "void hellocucumber.StepDefinitions.today_is(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 428000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I ask whether it\u0027s Friday yet",
+            "match": {
+              "location": "void hellocucumber.StepDefinitions.i_ask_whether_it_s_Friday_yet()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 456000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I should be told \"Nope\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Nope\"",
+                  "offset": 17
+                }
+              ],
+              "location": "void hellocucumber.StepDefinitions.i_should_be_told(java.lang.String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-04-29T13:58:20.862Z",
+        "line": 14,
+        "name": "Today is or is not Friday",
+        "description": "",
+        "id": "is-it-friday-yet?;today-is-or-is-not-friday;;4",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 684000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "today is \"anything else!\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"anything else!\"",
+                  "offset": 9
+                }
+              ],
+              "location": "void hellocucumber.StepDefinitions.today_is(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 351000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I ask whether it\u0027s Friday yet",
+            "match": {
+              "location": "void hellocucumber.StepDefinitions.i_ask_whether_it_s_Friday_yet()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 390000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I should be told \"Nope\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Nope\"",
+                  "offset": 17
+                }
+              ],
+              "location": "void hellocucumber.StepDefinitions.i_should_be_told(java.lang.String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Is it Friday yet?",
+    "description": "  Everybody wants to know when it\u0027s Friday",
+    "id": "is-it-friday-yet?",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/hellocucumber/is_it_friday_yet.feature",
+    "tags": []
+  }
+]
